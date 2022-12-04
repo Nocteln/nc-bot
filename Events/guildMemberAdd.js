@@ -56,6 +56,9 @@ module.exports = async (bot, member) => {
             await member.kick("captcha non fait !")
         }
 
+        let salon = member.guild.channels.cache.get("1044506278174666752")
+        await salon.send("test")
+
         
     })
 }

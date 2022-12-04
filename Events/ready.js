@@ -9,6 +9,8 @@ module.exports = async (bot, message) => {
         if(err) console.log(`erreur dans la db : ${err}`)
         console.log("🔌 base de donnée connectée")
     })
+    let statut = "Bot crée par Nocteln#5241"
+    await bot.user.setActivity(statut, {type: Discord.ActivityType.Watching})
 
 
     await loadSlashCommands(bot)

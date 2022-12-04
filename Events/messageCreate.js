@@ -8,10 +8,11 @@ module.exports = async (bot, message) => {
     db.query(`SELECT * FROM server WHERE guild = '${message.guild.id}'`, async (err, all) => {
 
         if(all.length<1)  {
-            db.query(`INSERT INTO server (guild, captcha, antiraid, xp) VALUES (${message.guild.id}, 'false', 'false', 'rien')`)
+            db.query(`INSERT INTO server (guild, captcha, antiraid, xp) VALUES (${message.guild.id}, 'false', 'false', 'true')`)
         }
         if(all[0].xp !== 'false') {
-            let salon = bot.channels.cache.get(all[0].xp)
+            let salon = all[0].xp
+            if(salon !== 'true') salon = bot.channels.cache.get(all[0].xp)
             
             db.query(`SELECT * FROM xp WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`, async (err, req) => {
         
@@ -24,11 +25,11 @@ module.exports = async (bot, message) => {
                     if((level+1)*1000 <= xp) {
                         db.query(`UPDATE xp SET xp = '${xp - (level+1)*1000}' WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`)
                         db.query(`UPDATE xp SET level = '${level+1}' WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`)
-        
-                        if(salon === 'rien'){
+                        console.log(salon)
+                        if(salon === 'true'){
                         await message.channel.send(`${message.author} est passé au niveau ${level+1} !`)
                         } else {
-                            await salon.send(`${message.author} est passé au niveau ${level+1}`)
+                            try {await salon.send(`${message.author} est passé au niveau ${level+1}`)} catch(err) {}
                         }
                     } else {
         

@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 
-module.exports = async (bot, interaction) => {
+module.exports = async (bot, interaction, args) => {
 
     var db = bot.db
 
@@ -16,6 +16,12 @@ module.exports = async (bot, interaction) => {
             let choices = ["on", "off"]
             let sortie = choices.filter(c =>c.includes(entry))
             await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))
+            }
+
+            if(interaction.commandName === "set_statut") {
+                let choices = ['Listening', "watching", "Playing", "Streaming", "Competting"]
+                let sortie = choices.filter(c =>c.includes(entry))
+                await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))
             }
     }
 
@@ -51,13 +57,15 @@ module.exports = async (bot, interaction) => {
                 AttachFiles: true,
                 ReadMessageHistory: true
             })
-            await channel.permissionOverwrites.create("1044006782244233226", {
-                ViewChannel: true,
-                EmbedLinks: true,
-                SendMessages: true,
-                AttachFiles: true,
-                ReadMessageHistory: true
-            })
+            // if(channel.guild.id === "706570232172511243") {
+            //     await channel.permissionOverwrites.create("887971328571875348", {
+            //         ViewChannel: true,
+            //         EmbedLinks: true,
+            //         SendMessages: true,
+            //         AttachFiles: true,
+            //         ReadMessageHistory: true
+            //     })
+            //}             
             await channel.setTopic(interaction.user.id)
             await interaction.reply({content: `Votre ticket à bien été créé : ${channel}`, ephemeral: true})
 
@@ -73,10 +81,10 @@ module.exports = async (bot, interaction) => {
             .setCustomId("close")
             .setLabel("fermer le ticket")
             .setStyle(Discord.ButtonStyle.Danger)
-            .setEmoji("<:croix:1044564209016504340> ")
+            .setEmoji("<:croix:1044564209016504340>")
             )
 
-            await channel.send({embeds : [Embed], components: [btn]})
+            await channel.send({content: `${interaction.user}`,embeds : [Embed], components: [btn]})
         }
 
         if(interaction.customId === "close") {
@@ -84,6 +92,34 @@ module.exports = async (bot, interaction) => {
             try {await user.send("Votre ticket à été fermé !")} catch(err){}
 
             await interaction.channel.delete()
+
+        }
+
+        if (interaction.customId === "primary") {
+            user = interaction.user
+            const filter = i => i.customId === 'primary'
+                const collector = interaction.channel.createMessageComponentCollector({ filter, time: 150000 });
+
+                collector.on('collect', async i => {
+                    await i.update({ content: "", components: [row2] });
+                });
+            
+                
+            
+            db.query(`SELECT * FROM xp WHERE guild = '${interaction.guildId}' AND user = '${user.id}'`, async (err,req) => {
+                const xpg = interaction.options.getNumber('quantité')
+                const xp = parseInt(req[0].xp)
+                const level = parseInt(req[0].level)                             
+                const xpadd = xpg+xp
+    
+                if(req.length <1 ) {
+                    db.query(`INSERT INTO xp (guild, user, xp, level) VALUE ('${interaction.guildId}', '${user.id}', '${xpadd}', '0'`) 
+                    return interaction.reply({embeds: [embedr("Green",":white_check_mark: Bien joué :tada:",`${user.tag} à récupéré le drop de ${nombre}xp, il maintenant level ${level} avec ${xpadd} xp`)]})
+                }
+                db.query(`UPDATE xp SET xp = ${xpadd} WHERE guild = '${interaction.guildId}' AND user = '${user.id}'`)
+                await interaction.reply({embeds: [embedr("Green",":tada: Bien joué :tada:",`${user.tag} à récupéré le drop de ${xpg}xp, il maintenant level ${level} avec ${xpadd} xp`)]})  
+        })
+          
         }
     }
 }

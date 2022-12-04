@@ -36,7 +36,7 @@ module.exports = {
             db.query(`UPDATE server SET xp = 'false' WHERE guild = '${message.guildId}'`)
             message.reply({embeds: [embedr("Green", ":white_check_mark: succes", "l'xp à bien été désactivé pour ce serveur")]})
         } else { if(!channel) {
-            db.query(`UPDATE server SET xp = 'rien' WHERE guild = '${message.guildId}'`)
+            db.query(`UPDATE server SET xp = 'true' WHERE guild = '${message.guildId}'`)
             message.reply({embeds: [embedr("Green", ":white_check_mark: succes", `l'xp à bien été activée pour ce serveur et les messages de niveaux s'enveront dans le salon du passage de niveau`)]})
         } else {
             db.query(`UPDATE server SET xp = '${channel.id}' WHERE guild = '${message.guildId}'`)
