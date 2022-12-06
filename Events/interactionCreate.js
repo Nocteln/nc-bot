@@ -47,6 +47,7 @@ module.exports = async (bot, interaction, args) => {
 
     if(interaction.isButton()) {
         if(interaction.customId == "ticket") {
+            await interaction.deferReply({ephemeral: true})
             let channel = await interaction.guild.channels.create({
                 name: `ticket-${interaction.user.username}`,
                 type: Discord.ChannelType.GuildText,
@@ -63,18 +64,9 @@ module.exports = async (bot, interaction, args) => {
                 SendMessages: true,
                 AttachFiles: true,
                 ReadMessageHistory: true
-            })
-            // if(channel.guild.id === "706570232172511243") {
-            //     await channel.permissionOverwrites.create("887971328571875348", {
-            //         ViewChannel: true,
-            //         EmbedLinks: true,
-            //         SendMessages: true,
-            //         AttachFiles: true,
-            //         ReadMessageHistory: true
-            //     })
-            //}             
+            })     
             await channel.setTopic(interaction.user.id)
-            await interaction.reply({content: `Votre ticket à bien été créé : ${channel}`, ephemeral: true})
+            await interaction.editReply({content: `Votre ticket à bien été créé : ${channel}`, ephemeral: true})
 
             let Embed = new Discord.EmbedBuilder()
             .setColor(bot.color)
@@ -93,6 +85,7 @@ module.exports = async (bot, interaction, args) => {
 
             await channel.send({content: `${interaction.user}`,embeds : [Embed], components: [btn]})
         }
+        
 
         if(interaction.customId === "close") {
             let user = bot.users.cache.get(interaction.channel.topic)

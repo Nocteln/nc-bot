@@ -1,5 +1,6 @@
 const { UserFlags } = require("discord.js")
 const Discord = require("discord.js")
+const { embedr } = require("../fonctions/embed")
 
 module.exports = {
 
@@ -26,7 +27,7 @@ module.exports = {
 
     db.query(`SELECT * FROM warns WHERE guild = '${message.guildId}' AND user = '${user.id}'`, async (err, reg) => {
 
-      if (reg.length < 1) return message.reply("Ce membre n'a pas de warn !")
+      if (reg.length < 1) return message.reply({embeds: [embedr("Red",":x: erreur","Ce membre n'a pas de warn !")]})
       await reg.sort((a, b) => parseInt(b.date) - parseInt(a.date))
 
       let Embed = new Discord.EmbedBuilder()

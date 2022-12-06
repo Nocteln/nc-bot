@@ -1,5 +1,6 @@
 const { PermissionFlagsBits } = require('discord.js')
 const Discord = require('discord.js')
+const { embedr } = require("../fonctions/embed")
 
 module.exports = {
     name: "warn",
@@ -32,17 +33,18 @@ module.exports = {
 
         let reason = args.getString("raison")
         if(!reason) reason = "Pas de raison fournie !"
+        await message.deferReply()
 
-        if(message.user.id === user.id) return message.reply("Vous ne pouvez pas vous avertir vous même !")
-        if((await message.guild.fetchOwner()).id === user.id) return message.reply("Vous ne pouvez pas avertir le créateur du serveur !")
-        if(message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("Tu ne peux pas avertir ce membre !")
-        if((await message.guild.members.fetchMe()).roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("Le bot ne peux pas avertir ce membre !")
+        if(message.user.id === user.id) return message.editReply({embeds: [embedr("Red", ":x: error", "Vous ne pouvez pas vous warn vous même !")]})
+        if((await message.guild.fetchOwner()).id === user.id) return message.editReply({embeds: [embedr('Red', ":x: erreur","Vous ne pouvez pas warn le créateur du serveur !")]})
+        if(message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.editReply({embeds: [embedr("Red",":x: erreur", "Vous ne pouvez pas warn ce membre !")]})
+        if((await message.guild.members.fetchMe()).roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.editReply({embeds: [embedr("Red",":x: erreur", "Le bot ne peux pas warn ce membre !")]})
         
         try { await user.send(`\`${message.user.tag}\` vous à avertir sur le serveur \`${message.guild.name}\` pour la raison \`${reason}\``)} catch (err) {}
 
         let ID  = await bot.function.createId("WARN")
 
-        await message.reply(`vous avez averti \`${user.tag}\` pour la raison : \`${reason}\` sous l'ID : \`${ID}\`avec succès !`)
+        await message.editReply({embeds:[embedr("Green",":white_check_mark: succes",`vous avez averti \`${user.tag}\` \npour la raison : \`${reason}\` \nsous l'ID : \`${ID}\`\navec succès !`)]})
 
         
 
