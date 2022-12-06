@@ -25,7 +25,7 @@ module.exports = async (bot, message) => {
                     if((level+1)*1000 <= xp) {
                         db.query(`UPDATE xp SET xp = '${xp - (level+1)*1000}' WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`)
                         db.query(`UPDATE xp SET level = '${level+1}' WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`)
-                        console.log(salon)
+                    
                         if(salon === 'true'){
                         await message.channel.send(`${message.author} est passé au niveau ${level+1} !`)
                         } else {
