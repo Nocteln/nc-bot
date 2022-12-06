@@ -23,6 +23,13 @@ module.exports = async (bot, interaction, args) => {
                 let sortie = choices.filter(c =>c.includes(entry))
                 await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))
             }
+
+            if(interaction.commandName === "roles") {
+                let choices = ['ajouter', "retirer"]
+                let sortie = choices.filter(c =>c.includes(entry))
+                await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))
+            }
+
     }
 
     
