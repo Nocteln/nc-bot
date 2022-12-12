@@ -19,7 +19,7 @@ module.exports = async (bot, message) => {
     await loadSlashCommands(bot)
 
     let allcommands = []
-    await bot.commands.forEach(commands => allcommands.push({commandName: commands.name, commandUsage: commands.utilisation}));
+    await bot.commands.forEach(commands => allcommands.push({commandName: commands.name, commandUsage: commands.utilisation, commandDescription: commands.description}));
 
     console.log(`🤖 ${bot.user.tag} est en ligne`)
 
@@ -35,26 +35,49 @@ module.exports = async (bot, message) => {
         },
         redirectUri: "http://localhost:8080/discord/callback",
         domain: "http://localhost",
-        bot: client,
+        minimalizedConsoleLogs: true,
+        acceptPrivacyPolicy: true,
+        bot: bot,
         theme: Theme({
             websiteName: "normalcochon",
             iconUrl: bot.displayAvatarUrl,
             index: {
-                card:{
-                    title: "Normalcochon-bot, le meilleur des robots",
-                    description: "ajoutez le ^^"
+                card: {
+                    title: "normalcochonbot",
+                    description: "ajoutez le"
                 },
-                informations: {
-                    title: "infos",
+                information: {
+                    title: "jsp",
                     description: "description"
+                },
+                feeds: {
+                    title: "Feeds",
+                    list: [
+                        {
+                        icon: "fa fa-user",
+                        text: "New user Registred",
+                        timeText: "just now",
+                        bg: "bg-light-info"
+                        }, {
+                        icon: "fa fa-server",
+                        text: "server issue",
+                        timeText: "3min ago",
+                        bg: "bg-light-danger"   
+                        }
+                    ] 
                 },
 
             },
             commands: {
                 pageTitle: "commandes",
-                table: {}
+                table: {
+                    title: "Toutes les commandes",
+                    subTitle: "salu1111",
+                    list: allcommands
+                }
             }
-        })
+        }),
+        settings: []
 
 
     })
