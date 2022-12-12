@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'codeblock',
     description: 'Envoyer un embed expliquant le codeblock',
+    utilisation: "/codeblock",
     permission: 'Aucune',
     dm: false,
     category: "utilitaire",

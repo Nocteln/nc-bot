@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "set_xp",
     description: "Définie l'xp du serveur",
+    utilisation: "/set_xp [état] (salon)",
     permission: Discord.PermissionFlagsBits.Administrator,
     dm: false,
     category: "Modération",

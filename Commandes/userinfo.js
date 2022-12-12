@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "userinfo",
     description: "obtenir les informations sur un utilisateur",
+    utilisation: "/userinfo (utilisateur)",
     permissions: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Informations",

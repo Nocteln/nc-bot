@@ -4,6 +4,7 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, Events } = require('discor
 module.exports = {
     name: 'test',
     description: 'affiche hello world',
+    utilisation: "/test",
     permission: 'Aucune',
     category: "utilitaire",
     dm: true,

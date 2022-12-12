@@ -6,6 +6,7 @@ module.exports = {
     name: 'roles',
     description: 'Permet d\'ajouter ou de retirer un role au rôle react',
     permission: Discord.PermissionFlagsBits.ManageGuild,
+    utilisation: "/roles [action] [rôle]",
     dm: false,
     category: "Administration",
     options: [{

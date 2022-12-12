@@ -5,6 +5,7 @@ module.exports = {
     name: "rolereaction", 
     description: "Envoie le reaction role",
     permission: Discord.PermissionFlagsBits.ManageGuild,
+    utilisation: "/rolereaction",
     dm: false,
     category: "Administration",
     options: [],

@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "banlist",
     description: "permet d'afficher la liste des bannis du serveur'",
+    utilisation: "/banlist",
     permission: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Modération",

@@ -5,6 +5,7 @@ module.exports = {
 
     name: "set_antispam",
     description: "paramétrer l'antispam sur le serveur",
+    utilisation: "/set_antispam [état]",
     permission: Discord.PermissionFlagsBits.ManageGuild,
     category: "Modération",
     dm: false,

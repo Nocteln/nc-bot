@@ -5,6 +5,7 @@ module.exports = {
 
     name: "set_antiraid",
     description: "paramétrer l'antiraid sur le serveur",
+    utilisation: "/set_antiraid [état]",
     permission: Discord.PermissionFlagsBits.ManageGuild,
     category: "Modération",
     dm: false,

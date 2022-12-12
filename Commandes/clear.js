@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'clear',
     description: 'Supprimer plusieurs messages en même temps',
+    utilisation: "/clear [quantité] (salon)",
     permission: Discord.PermissionFlagsBits.ManageMessages,
     dm: false,
     category: "utilitaire",

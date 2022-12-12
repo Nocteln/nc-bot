@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'set_statut',
     description: 'Définir le statut',
+    utilisation: "/set_statut [activité] [statut] (lien)",
     permission: Discord.PermissionFlagsBits.Administrator,
     dm: false,
     category: "Modération",

@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'ping',
     description: 'affiche la latence',
+    utilisation: "/ping",
     permission: 'Aucune',
     category: "utilitaire",
     dm: true,

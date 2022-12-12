@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "avatar",
     description: "Permet de voir la photo de profil de quelqun",
+    utilisation: "/avatar [utilisateur]",
     permission: 'Aucune',
     dm: false,
     category: "utilitaire",

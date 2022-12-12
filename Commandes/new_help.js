@@ -1,13 +1,16 @@
 const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js")
 const Discord = require("discord.js")
+const { embedr } = require("../fonctions/embed")
 
 module.exports = {
   name: 'new_help',
   permission: Discord.PermissionFlagsBits.Administrator,
+  utilisation: "/new_help",
   category: "utilitaire",
   dm: true,
-  description: '📜 Afficher toutes les commandes disponibles avec ce bot!',
+  description: 'Afficher toutes les commandes disponibles avec ce bot!',
   async run(bot, interaction) {
+    if(interaction.user.id !== "562693590514532362") return interaction.reply({embeds: [embedr('Red', ':x: erreur', "commande en cours de développement !")]})
     const embed = new Discord.EmbedBuilder()
       .setTitle(`Commands de ${bot.user.username}`)
       .setColor('#210030')

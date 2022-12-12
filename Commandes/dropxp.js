@@ -5,6 +5,7 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, PermissionFlagsBit
 module.exports = {
     name: "dropxp",
     description: "drop de l'xp dans le salon",
+    utilisation: "/dropxp [quantité]",
     permission: Discord.PermissionFlagsBits.Administrator,
     dm: false,
     category: "Expérience",

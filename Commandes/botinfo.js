@@ -4,6 +4,7 @@ module.exports = {
 
     name: "botinfo",
     description: "Permet d'avoir les informations sur le bot",
+    utilisation: "/botinfo",
     dm: false,
     permission: "Aucune",
     category: "Informations",

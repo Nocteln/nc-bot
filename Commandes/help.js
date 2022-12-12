@@ -4,6 +4,7 @@ const { ApplicationCommandType, ApplicationCommandOptionType } = require('discor
 module.exports = {
     name: 'help',
     description: 'affiche les commandes du bot et leurs descriptions',
+    utilisation: "/help (commande)",
     permission: 'Aucune',
     dm: true,
     category: "Informations",

@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "rank",
     description: "Donne l'xp d'un membre",
+    utilisation: "/rank (utilisateur)",
     permission: 'Aucune',
     dm: false,
     category: "Expérience",

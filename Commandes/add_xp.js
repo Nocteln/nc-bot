@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "add_xp",
     description: "ajoute de l'xp à un membre",
+    utilisation: "/add_xp [utilisateur] [quantité]",
     permission: Discord.PermissionFlagsBits.Administrator,
     dm: false,
     category: "Expérience",

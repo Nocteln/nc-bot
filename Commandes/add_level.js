@@ -6,6 +6,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "add_level",
     description: "ajoute des niveaux à un membre",
+    utilisation: "/add_level [utilisateur] [quantité]",
     permission: Discord.PermissionFlagsBits.Administrator,
     dm: false,
     category: "Expérience",

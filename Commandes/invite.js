@@ -3,6 +3,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'invite',
     description: 'Envoie le lien d\'invitation du bot',
+    utilisation: "/invite",
     permission: 'Aucune',
     category: "utilitaire",
     dm: true,

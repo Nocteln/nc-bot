@@ -5,6 +5,7 @@ const Canvas = require('discord-canvas-easy')
 module.exports = {
     name: "rules",
     description: "affiche les regles",
+    utilisation: "/rules",
     permission: 'Aucune',
     dm: false,
     category: "utilitaire",

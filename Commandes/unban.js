@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "unban",
     description: "débannir un membre",
+    utilisation: "/unban [utilisateur] (raison)",
     permissions: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Modération",

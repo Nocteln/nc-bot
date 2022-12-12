@@ -5,6 +5,7 @@ module.exports = {
 
     name: "set_captcha",
     description: "paramétrer le captcha sur le serveur",
+    utilisation: "/set_captcha [utilisateur]",
     permission: Discord.PermissionFlagsBits.ManageGuild,
     category: "Modération",
     dm: false,

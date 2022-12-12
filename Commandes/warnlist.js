@@ -6,6 +6,7 @@ module.exports = {
 
   name: "warnlist",
   description: "Affiche les warns d'un membre",
+  utilisation: "/warnlist [utilisateur]",
   permission: Discord.PermissionFlagsBits.ManageMessages,
   dm: false,
   category: "Modération",

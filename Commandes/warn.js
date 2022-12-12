@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "warn",
     description: "avertir un membre",
+    utilisation: "/warn [utilisateur] (raison)",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
     category: "Modération",

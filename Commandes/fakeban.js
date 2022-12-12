@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "fakeban",
     description: "permet de bannir un membre pour de faux",
+    utilisation: "/fakeban [utilisateur] (raison)",
     permission: 'Aucune',
     dm: false,
     category: "fun",

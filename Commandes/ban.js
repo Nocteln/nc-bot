@@ -68,6 +68,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: "ban",
     description: "Bannir un membre",
+    utilisation: "/ban [utilisateur] (raison)",
     permission: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Modération",

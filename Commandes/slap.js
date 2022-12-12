@@ -4,6 +4,7 @@ module.exports = {
 
     name: "slap",
     description: "Permet de gifler un membre du serveur",
+    utilisation: "/slap [utilisateur]",
     permission: "Aucune",
     dm: false,
     category: "fun",

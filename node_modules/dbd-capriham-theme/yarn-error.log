@@ -1,0 +1,73 @@
+Arguments: 
+  E:\node\node.exe C:\Users\kondr\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add *
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;E:\node\;C:\Users\kondr\AppData\Local\Microsoft\WindowsApps;E:\WebStorm 2021.3.2\bin;;C:\Users\kondr\AppData\Roaming\npm;C:\Users\kondr\AppData\Local\GitHubDesktop\bin;C:\ProgramData\kondr\GitHubDesktop\bin;D:\DBD-capriham-theme\node_modules\.bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.14.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/*: Not found
+      at Request.params.callback [as _callback] (C:\Users\kondr\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
+      at Request.self.callback (C:\Users\kondr\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (node:events:520:28)
+      at Request.<anonymous> (C:\Users\kondr\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (node:events:520:28)
+      at IncomingMessage.<anonymous> (C:\Users\kondr\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (node:events:639:28)
+      at IncomingMessage.emit (node:events:532:35)
+      at endReadableNT (node:internal/streams/readable:1346:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "author": {
+      "name": "breftejk"
+    },
+    "bugs": {
+      "url": "https://github.com/breftejk/DBD-capriham-theme/issues"
+    },
+    "bundleDependencies": false,
+    "dependencies": {
+      "node-fetch": "2.6.6"
+    },
+    "deprecated": false,
+    "description": "discord-dashboard theme: The best way to create a Web Dashboard for your Discord Bot! No need to edit files or write the server from scratch!",
+    "directories": {
+      "test": "test"
+    },
+    "homepage": "https://assistants.ga/dbd-docs/#/?id=capriham",
+    "keywords": [
+      "discord",
+      "discord.js",
+      "discordjs",
+      "discord dashboard",
+      "discord web dashboard",
+      "web dashboard",
+      "dashboard"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "dbd-capriham-theme",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/breftejk/DBD-capriham-theme.git"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "version": "1.7.3"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

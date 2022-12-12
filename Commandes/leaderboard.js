@@ -6,6 +6,7 @@ module.exports = {
 
     name: "leaderboard",
     description: "Affiche le classement de l'xp du serveur",
+    utilisation: "/leaderboard",
     permission: "Aucune",
     dm: false,
     category: "Expérience",

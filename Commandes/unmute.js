@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'unmute',
     description: 'unmute un membre',
+    utilisation: "/unmute [utilisateur] (raison)",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
     category: "Modération",

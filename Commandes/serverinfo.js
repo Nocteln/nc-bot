@@ -5,6 +5,7 @@ module.exports = {
 
     name: "serverinfo",
     description: "Permet d'avoir les informations sur le serveur",
+    utilisation: "/serverinfo",
     dm: false,
     permission: "Aucune",
     category: "Informations",

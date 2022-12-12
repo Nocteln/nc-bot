@@ -5,6 +5,7 @@ const { embedr } = require("../fonctions/embed")
 module.exports = {
     name: 'unlock',
     description: 'Débloquer un salon',
+    utilisation: "/unlock (rôle) (salon)",
     permission: Discord.PermissionFlagsBits.ManageChannels,
     dm: false,
     category: "utilitaire",

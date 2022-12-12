@@ -6,6 +6,7 @@ module.exports = {
     name: 'lock',
     description: 'Fermer un salon',
     permission: Discord.PermissionFlagsBits.ManageChannels,
+    utilisation: "/lock (role) (salon)",
     dm: false,
     category: "utilitaire",
     options: [{

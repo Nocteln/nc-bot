@@ -5,6 +5,7 @@ module.exports = {
     name: "nuke",
     description: "Recréer un salon.",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
+    utilisation: "/nuke [salon]",
     dm: false,
     category: "Modération",
     options: [

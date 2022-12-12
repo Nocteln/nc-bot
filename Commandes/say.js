@@ -5,6 +5,7 @@ module.exports = {
     name: "say",
     description: "Dire un message à la place du bot",
     permission: Discord.PermissionFlagsBits.Administrator,
+    utilisation: "/say [message]",
     category: "fun",
     dm: false,
     options: [

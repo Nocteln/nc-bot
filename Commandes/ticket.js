@@ -5,6 +5,7 @@ module.exports = {
 
     name: "ticket",
     description: "Envoyer un embed pour les tickets",
+    utilisation: "/ticket",
     permission: Discord.PermissionFlagsBits.ManageGuild,
     category: "Modération",
     dm: false,

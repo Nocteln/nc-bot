@@ -7,6 +7,7 @@ module.exports = {
     name: "remove_level",
     description: "enleve des niveaux à un membre",
     permission: Discord.PermissionFlagsBits.Administrator,
+    utilisation: "/remove_level [utilisateur] (quantité)",
     dm: false,
     category: "Expérience",
     options: [
