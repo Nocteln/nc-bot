@@ -12,6 +12,7 @@ bot.color = "#F5BFD9"
 bot.function = {
     createId: require("./fonctions/createId"),
     generateCaptcha: require("./fonctions/generateCaptcha"),
+    searchSpam: require("./fonctions/searchSpam"),
 }
 
 bot.login(config.token)

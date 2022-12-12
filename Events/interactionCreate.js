@@ -12,7 +12,7 @@ module.exports = async (bot, interaction, args) => {
         await interaction.respond(entry === "" ? bot.commands.map(cmd => ({name: cmd.name, value: cmd.name})) : choices.map(choice =>({name: choice.name, value: choice.name})))
         }
 
-        if(interaction.commandName === "set_captcha" || interaction.commandName === "set_antiraid" || interaction.commandName === "set_xp") {
+        if(interaction.commandName === "set_captcha" || interaction.commandName === "set_antiraid" || interaction.commandName === "set_xp" || interaction.commandName === "set_antispam") {
             let choices = ["on", "off"]
             let sortie = choices.filter(c =>c.includes(entry))
             await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))
@@ -42,6 +42,33 @@ module.exports = async (bot, interaction, args) => {
         command.run(bot, interaction, interaction.options, db)
     }
 
+    if(interaction.type === 3){ // 3 = menu
+        if(interaction.customId === "reactionrole"){
+            bot.db.query(`SELECT * FROM server WHERE guild = '${interaction.guildId}'`, async(err, req) => {
+                let roles = req[0].reactionrole.split(' ')
+                if(roles.length <= 0) return
+
+                await interaction.deferReply({ephemeral:true})
+
+                let retiredroles = []
+                let addroles = []
+
+                for(let i=0; i<roles.length;i++){
+                    if(interaction.member.roles.cache.has(roles[i]) && interaction.values.includes(roles[i])){
+                        interaction.member.roles.remove(roles[i])
+                        retiredroles.push(roles[i])
+                    }
+                }
+
+                for(let i=0; i<interaction.values.length;i++){
+                    interaction.member.roles.add(interaction.values[i])
+                    addroles.push(interaction.values[i])
+                }
+
+                await interaction.followUp({content: `${addroles.length <= 0 ? "" : `Les rôles ${addroles.map(r=> `\`${interaction.guild.roles.cache.get(r).name}\``).join(", ")} vous ont été ajoutés`}  \n${retiredroles.length <=0 ? "" : `Les rôles ${retiredroles.map(r=> `\`${interaction.guild.roles.cache.get(r).name}\``).join(", ")} vous ont été retiré`}`, ephemeral:true})
+            })
+        }
+    }
 
     
 

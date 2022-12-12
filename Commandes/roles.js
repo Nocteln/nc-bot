@@ -42,7 +42,7 @@ module.exports = {
 
                 await roles.push(role.id)
 
-                await db.query(`UPDATE server SET reactionrole = '${roles.join(' ')}' WHERE guild = '${message.guildId}'`)
+                await db.query(`UPDATE server SET reactionrole = '${roles.filter(item => item !== '').join(' ')}' WHERE guild = '${message.guildId}'`)
                 await message.reply({embeds: [embedr('Green', ':white_check_mark: sucess', `Le rôle \`${role.name}\`  à bien été ajouté !`)]})
 
 
@@ -59,7 +59,7 @@ module.exports = {
                 let number = roles.indexOf(role.id)
                 delete roles[number]
 
-                await db.query(`UPDATE server SET reactionrole = '${roles.join(' ')}' WHERE guild = '${message.guildId}'`)
+                await db.query(`UPDATE server SET reactionrole = '${roles.filter(item => item !== '').join(' ')}' WHERE guild = '${message.guildId}'`)
                 await message.reply({embeds: [embedr('Green', ':white_check_mark: sucess', `Le rôle \`${role.name}\`  à bien été ajouté !`)]})
 
 

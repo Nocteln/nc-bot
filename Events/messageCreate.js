@@ -8,8 +8,10 @@ module.exports = async (bot, message) => {
     db.query(`SELECT * FROM server WHERE guild = '${message.guild.id}'`, async (err, all) => {
 
         if(all.length<1)  {
-            db.query(`INSERT INTO server (guild, captcha, antiraid, xp) VALUES (${message.guild.id}, 'false', 'false', 'true')`)
+            db.query(`INSERT INTO server (guild, captcha, antiraid,antispam, xp,reactionrole) VALUES (${message.guild.id}, 'false','false', 'false', 'true','')`)
         }
+
+        if(all[0].antispam === 'true' ) await bot.function.searchSpam(message)
         if(all[0].xp !== 'false') {
             let salon = all[0].xp
             if(salon !== 'true') salon = bot.channels.cache.get(all[0].xp)
@@ -33,7 +35,7 @@ module.exports = async (bot, message) => {
                         }
                     } else {
         
-                        let xpToGive = Math.floor(Math.random()*1000) + 1
+                        let xpToGive = Math.floor(Math.random()*100) + 1
         
                         db.query(`UPDATE xp SET xp = '${xp + xpToGive}' WHERE guild = '${message.guildId}' AND user = '${message.author.id}'`)
                     }
