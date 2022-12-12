@@ -5,5 +5,5 @@ module.exports = {
 	clientId: "938161748832305224",
 	guildId: "876217954688172062",
 	secret:"Dor80Km15kndk4zi85r3DSXdL8ZKwtYR",
-	license: "02e4b8e7-c6d3-424a-9787-7b584e21ab1e"
+	license: "02e4b8e7-c6d3-424a-9787-7b584e21ab1e",
 }
