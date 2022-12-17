@@ -1,8 +1,8 @@
-const Client = require('clash-royale-api')
 const Discord = require('discord.js')
 const { embedr } = require("../fonctions/embed")
 const config = require('../config')
-const client = new Client(config.crtoken)
+const { ClashRoyaleAPI } = require('@varandas/clash-royale-api')
+const api = new ClashRoyaleAPI(config.crtoken)   
 
 module.exports = {
     name: "clashroyale",
@@ -21,36 +21,38 @@ module.exports = {
     ],
 
     async run(bot, message, args) {
-        (async function () {
-
-            let tag = args.getString("tag")
-      
-            try {
-              const data = await client.player(tag)
-              const malEmbed = new Discord.EmbedBuilder()
-                .setTitle("***Clash Royale***")
-                .setColor("#00A705")
-                .setDescription(`
-      
-                     ${logoclashofclan} **Les informations du joueur :**
-      
-                            > **Nom :** \`${data.name}\`
-                            > **Arène :** \`${data.arena}\`
-                            > **Level :** \`${data.expLevel}\`
-                            > **Trophée :** \`${data.trophies}\`
-                            > **Meilleur nombre de trophée :** \`${data.bestTrophies}\`
-      
-                            `)
-                .setThumbnail(bot.user.displayAvatarURL({ dynamic: true, size: 64 }))
-                .setFooter({ text: `${message.user.tag}`, iconURL: `${message.user.avatarURL()}` })
-      
-              message.reply({ embeds: [malEmbed] })
-        } catch (err) { 
-            console.log(err)
-            message.reply({embeds: [embedr("Red", ":x: erreur", "Tag invalide")]}) }
-          })()
-      
+ 
+ 
+ 
+      let tag = args.getString("tag")
+   
+      try {
+        api.getPlayerByTag(tag)
+          .then((data) => {
+   
+            const malEmbed = new Discord.EmbedBuilder()
+              .setTitle("***Clash royal***")
+              .setColor("#00A705")
+              .setDescription(`
+   
+               **Les informations du joueur :**
+   
+                      > **Name :** \`${data.name}\`
+                      > **Arène :** \`${data.arena.name}\`
+                      > **Level :** \`${data.expLevel}\`
+                      > **Combat gagné :** \`${data.wins}\`
+                      > **Combat perdus :** \`${data.losses}\`
+                      > **Nombre de combat :** \`${data.battleCount}\`
+                      > **Trophée :** \`${data.trophies}\`
+                      > **Meilleur nombre de trophée :** \`${data.bestTrophies}\`
+                      > **Total de donations :** \`${data.totalDonations}\``)
+              .setThumbnail(bot.user.displayAvatarURL({ dynamic: true, size: 64 }))
+              .setFooter({ text: `${message.user.tag}`, iconURL: `${message.user.avatarURL()}` })
+   
+            message.reply({ embeds: [malEmbed] })
+   
+          })
+      } catch (err) { message.reply("Mettre le tag du joueur") }
     }
-
-    
+      
 }

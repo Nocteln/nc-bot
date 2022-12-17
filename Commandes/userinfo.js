@@ -47,6 +47,7 @@ module.exports = {
         if(message.guild.ownerId === user.id) user_embed.setTitle(':crown: Propriétaire du serveur')
 
 
+
         await message.reply({embeds: [user_embed]})
 
 

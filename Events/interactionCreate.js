@@ -148,5 +148,24 @@ module.exports = async (bot, interaction, args) => {
         })
           
         }
+
+        if(interaction.customId.startsWith('giveaway_')) {
+            let ID = interaction.customId.split("_")[1]
+            db.query(`SELECT * FROM gwparticipants WHERE id = '${interaction.user.id} ${ID}'`, async (err, req) => {
+                if(req.length < 1) {
+                    let sql = `INSERT INTO gwparticipants (id, giveaway, user) VALUES ('${interaction.user.id} ${ID}','${ID}', ${interaction.user.id})`
+                    db.query(sql, function(err){
+                        if(err) throw err
+                    })
+
+                    await interaction.reply({content: `**Participation validée pour le concours**`, ephemeral: true})
+                } else {
+                    db.query(`DELETE FROM gwparticipants WHERE id = '${interaction.user.id} ${ID}'`)
+                    await interaction.reply({content: `Participation retirée`, ephemeral: true })
+                }
+
+                
+            })
+        }
     }
 }

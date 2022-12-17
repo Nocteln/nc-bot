@@ -84,4 +84,33 @@ module.exports = async (bot, message) => {
     })
 
     Dashboard.init()
+/*
+    setInterval(async () => {
+        const db = bot.db
+        db.query(`SELECT * FROM giveaways`, async (err,req)=> {
+            if(req.length <1) return
+
+            for(let i; i<req.length; i++) {
+                
+                if(Date.now() >= parseInt(req[i].date) && req[i].finish === 'non') {
+
+                    console.log("cc")
+                    let channel = bot.guild.cache.get(req[i].guild).channel.cache.get(req[i].channel)
+                    if(!channel) return db.query(`DELETE FROM giveaways WHERE giveaway = '${req[i].giveaway}'`)
+                    
+                    db.query(`SELECT * FROM gwparticipants WHERE giveaway = '${req[i].giveaway}'`, async (err,parts) => {
+                        if(parseInt(req[i].winners) > parseInt(parts.length)) return channel.send(`Il n'y as pas assez de participants dans le giveaway`)
+
+                        let number = Math.floor(Math.random()* parseInt(req[i].winners))
+                        let winner = bot.user.cache.get(parts[number].user)
+                        console.log("ccccc")
+                        await db.query(`UPDATE giveaways SET finish = 'oui' WHERE giveaway = '${req[i].giveaway}'`)
+
+                        channel.send(`Le gagnant est ${winner}`)
+                    })
+                }
+
+            }
+        })
+    })*/
 }
