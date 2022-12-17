@@ -40,8 +40,7 @@ module.exports = {
             if(active === 'false') return message.reply({embeds: [embedr("Red", "❌ erreur", "l'xp n'est pas activée sur ce serveur" )]})
         
         db.query(`SELECT * FROM xp WHERE guild = '${message.guildId}' AND user = '${user.id}'`, async (err,req) => {
-            
-         
+                    
 
             const xp = parseInt(req[0].xp)
             const level = parseInt(req[0].level)

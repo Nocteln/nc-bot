@@ -8,7 +8,7 @@ module.exports = {
     permission: Discord.PermissionFlagsBits.ManageGuild,
     utilisation: "/roles [action] [rôle]",
     dm: false,
-    category: "Administration",
+    category: "Modération",
     options: [{
         type: 'string',
         name: "action",

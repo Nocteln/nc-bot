@@ -8,7 +8,7 @@ module.exports = async (bot, message) => {
     db.query(`SELECT * FROM server WHERE guild = '${message.guild.id}'`, async (err, all) => {
 
         if(all.length<1)  {
-            db.query(`INSERT INTO server (guild, captcha, antiraid,antispam, xp,reactionrole) VALUES (${message.guild.id}, 'false','false', 'false', 'true','')`)
+            db.query(`INSERT INTO server (guild, captcha, antiraid,antispam, xp,reactionrole,suggest) VALUES (${message.guild.id}, 'false','false', 'false', 'true','','false')`)
         }
 
         if(all[0].antispam === 'true' ) await bot.function.searchSpam(message)

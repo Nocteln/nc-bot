@@ -40,7 +40,7 @@ module.exports = async (bot, message) => {
         bot: bot,
         theme: Theme({
             websiteName: "normalcochon",
-            iconUrl: bot.displayAvatarUrl,
+            iconURL: "https://cdn.discordapp.com/avatars/831938139500970007/69fa718e7f44e3cd0c8e51accc6bad5f.png?size=4096&ignore=true",
             index: {
                 card: {
                     title: "normalcochonbot",
@@ -48,7 +48,8 @@ module.exports = async (bot, message) => {
                 },
                 information: {
                     title: "jsp",
-                    description: "description"
+                    description: "description",
+                    image: "https://cdn.discordapp.com/avatars/831938139500970007/69fa718e7f44e3cd0c8e51accc6bad5f.png?size=4096&ignore=true"
                 },
                 feeds: {
                     title: "Feeds",

@@ -12,7 +12,7 @@ module.exports = async (bot, interaction, args) => {
         await interaction.respond(entry === "" ? bot.commands.map(cmd => ({name: cmd.name, value: cmd.name})) : choices.map(choice =>({name: choice.name, value: choice.name})))
         }
 
-        if(interaction.commandName === "set_captcha" || interaction.commandName === "set_antiraid" || interaction.commandName === "set_xp" || interaction.commandName === "set_antispam") {
+        if(interaction.commandName === "set_captcha" || interaction.commandName === "set_antiraid" || interaction.commandName === "set_xp" || interaction.commandName === "set_antispam" || interaction.commandName === "set_suggest" ) {
             let choices = ["on", "off"]
             let sortie = choices.filter(c =>c.includes(entry))
             await interaction.respond(entry === "" ? sortie.map(c => ({name: c, value: c})) : sortie.map(c =>({name: c, value: c})))

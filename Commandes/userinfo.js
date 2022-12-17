@@ -1,11 +1,11 @@
 const { PermissionFlagsBits } = require('discord.js')
 const Discord = require('discord.js')
 const { embedr } = require("../fonctions/embed")
+const config = require("../config")
 
 module.exports = {
     name: "userinfo",
     description: "obtenir les informations sur un utilisateur",
-    utilisation: "/userinfo (utilisateur)",
     permissions: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Informations",
@@ -43,6 +43,8 @@ module.exports = {
         .setFooter({text: `requète de ${message.user.tag}`, iconURL: message.user.displayAvatarURL({dynamic: true})}) 
         .setAuthor({ name: `informations de ${user.tag}`, iconURL: user.displayAvatarURL({dynamic: true}), url: user.displayAvatarURL({dynamic: true}) })
         
+        if(config.dev === user.id) user_embed.setTitle(':crown: Developpeur du bot')
+        if(message.guild.ownerId === user.id) user_embed.setTitle(':crown: Propriétaire du serveur')
 
 
         await message.reply({embeds: [user_embed]})

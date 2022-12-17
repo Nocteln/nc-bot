@@ -27,10 +27,10 @@ module.exports = {
         if(etat === "off") {
 
             db.query(`UPDATE server SET antiraid = 'false' WHERE guild = '${message.guildId}'`)
-            await message.reply({ embeds: [embedr("Green", ":white_check_mark: succes ", "L'antiraid à bien été désactivé ! Les membres ne peuvent désormais plus rejoindre le serveur")]})
+            await message.reply({ embeds: [embedr("Green", ":white_check_mark: succes ", "L'antiraid à bien été désactivé ! Les membres ne peuvent désormais rejoindre le serveur")]})
         } else {
             db.query(`UPDATE server SET antiraid = 'true' WHERE guild = '${message.guildId}'`)
-            await message.reply({ embeds: [embedr("Green", ":white_check_mark: succes ", `L'antiraid à bien été activé !`)]})
+            await message.reply({ embeds: [embedr("Green", ":white_check_mark: succes ", `L'antiraid à bien été activé, les membres ne peuvent désormais plus rejoindre le serveur !`)]})
         }
     }
 }
