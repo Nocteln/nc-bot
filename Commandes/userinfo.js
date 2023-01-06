@@ -9,6 +9,7 @@ module.exports = {
     permissions: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     category: "Informations",
+    utilisation: "/userinfo (user)",
     options: [
         {
             type: "user",

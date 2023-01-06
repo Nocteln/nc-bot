@@ -48,9 +48,9 @@ module.exports = {
 
     async run(bot, message, args, db) {
 
-        if(!message.member.permissions.has('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Giveaways")){
+        if(!message.member.permissions.has('MANAGE_MESSAGES')){
             return interaction.reply({
-                content: ':x: You need to have the manage messages permissions to start giveaways.',
+                content: ':x: Tu n\'as pas les permissions.',
                 ephemeral: true
             });
         }

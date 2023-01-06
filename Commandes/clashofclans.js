@@ -11,7 +11,8 @@ module.exports = {
   description: "Permet de voir les informations du joueur",
   permission: "Aucune",
   dm: false,
-  category: "Fun",
+  utilisation: "/clashofclans [tag]",
+  category: "fun",
   options: [
     {
       type: "string",

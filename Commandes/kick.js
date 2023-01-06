@@ -37,13 +37,13 @@ module.exports = {
         if(!reason) reason = "Aucune raison n'a été fournie !";
         if(message.user.id === user.id) return message.reply({embeds: [embedr("Red", "❌ erreur","Vous ne pouvez pas vous exclure vous même !")]})
 
-        if((await message.guild.fetchOwner()).id === user.id) return message.reply({embeds: [embedr("#FF0000", "❌ erreur","Vous ne pouvez pas exclure le créateur du serveur !")]})
+        if((await message.guild.fetchOwner()).id === user.id) return message.reply({embeds: [embedr("Red", "❌ erreur","Vous ne pouvez pas exclure le créateur du serveur !")]})
 
-        if(member && !member.kickable) return message.reply({embeds: [embedr("#FF0000", "❌ erreur","Je ne peux pas exclure ce membre !")]})
+        if(member && !member.kickable) return message.reply({embeds: [embedr("Red", "❌ erreur","Je ne peux pas exclure ce membre !")]})
        
-        if(!message.member.permissions.has(Discord.PermissionsBitField.Flags.KickMembers)) return message.reply({embeds: [embedr("❌ erreur","Vous n'avez pas la permition d'exclure les membres !")]})
+        if(!message.member.permissions.has(Discord.PermissionsBitField.Flags.KickMembers)) return message.reply({embeds: [embedr("Red","❌ erreur","Vous n'avez pas la permition d'exclure les membres !")]})
 
-        if(member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply({embeds: [embedr("❌ erreur","Vous ne pouvez pas exclure ce membre !")]})
+        if(member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply({embeds: [embedr("Red","❌ erreur","Vous ne pouvez pas exclure ce membre !")]})
             
 
 

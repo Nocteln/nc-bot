@@ -1,6 +1,5 @@
 const { PermissionFlagsBits } = require('discord.js')
 const Discord = require('discord.js')
-const Canvas = require('discord-canvas-easy')
 const { embedr } = require("../fonctions/embed")
 
 module.exports = {

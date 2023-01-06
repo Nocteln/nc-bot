@@ -8,8 +8,9 @@ module.exports = {
     name: "clashroyale",
     description: "Permet de voir les informations du joueur",
     permission: "Aucune",
+    utilisation: "/clashroyale [tag]",
     dm: false,
-    category: "Fun",
+    category: "fun",
     options: [
       {
         type: "string",

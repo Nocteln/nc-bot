@@ -29,7 +29,7 @@ module.exports = async (bot, member) => {
 
         let captcha = await bot.function.generateCaptcha()
 
-        let msg = await channel.send({content: `${member}, veuillez completer le captcha afin de débloquer l'accès au reste du serveur.\n *vous avez 2min et si vous ne le réussisez pas vous serez exclu du serveur !*`, files: [new Discord.AttachmentBuilder((await captcha.canvas).toBuffer(), {name: "captcha.png"})]})
+        let msg = await channel.send({content: `${member}, veuillez completer le captcha afin de débloquer l'accès au reste du serveur.\n *vous avez 2minutes et si vous ne le réussisez pas vous serez exclu du serveur !*\n\n\n ${captcha.text}`})
 
         try {
             let filter = m => m.author.id === member.user.id
@@ -56,8 +56,7 @@ module.exports = async (bot, member) => {
             await member.kick("captcha non fait !")
         }
 
-        let salon = member.guild.channels.cache.get("1044506278174666752")
-        await salon.send("test")
+       
 
         
     })

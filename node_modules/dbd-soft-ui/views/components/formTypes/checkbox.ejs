@@ -1,0 +1,14 @@
+<% if(!Allowed.allowed){ %><span style="color: red;"><%- Allowed.errorMessage %></span><br><% } %>
+
+<label class="container">
+    <input type="checkbox" id="<%= option.optionId %>"
+           formType="checkbox"
+           id="<%= option.optionId %>"
+           formType="checkbox"
+           defaultValue=""
+           <% if(!Allowed.allowed || option.optionType.disabled){ %>disabled<% } %>
+           <% if(!Allowed.allowed){ %>style="border-color: red;"<% } %>
+    >
+    <span class="checkmark round"></span>
+</label>
+<br>

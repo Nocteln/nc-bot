@@ -21,7 +21,7 @@ module.exports = {
             type: "channel",
             name: "salon",
             description: "salon du captcha",
-            required: false,
+            required: true,
             autocomplete: false
         }
     ],

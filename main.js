@@ -15,6 +15,7 @@ bot.function = {
     createId: require("./fonctions/createId"),
     generateCaptcha: require("./fonctions/generateCaptcha"),
     searchSpam: require("./fonctions/searchSpam"),
+    gif: require("./fonctions/gif"),
 }
 
 bot.login(config.token)

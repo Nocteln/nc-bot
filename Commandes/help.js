@@ -55,7 +55,7 @@ module.exports = {
             .setColor(bot.color)
             .setTitle(`Commande ${command.name}`)
             .setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
-            .setDescription(`Nom : \`${command.name}\`\nDescription : \`${command.description}\`\nPermitions requises : \`${typeof command.permission !== "bigint" ? command.permission : new Discord.PermissionsBitField(command.permission).toArray(false)}\`\nCommande en MP : \`${command.dm ? "Oui" : "Non"}\`\nCatégorie : \`${command.category}\``)
+            .setDescription(`Nom : \`${command.name}\`\nDescription : \`${command.description}\`\nPermitions requises : \`${typeof command.permission !== "bigint" ? command.permission : new Discord.PermissionsBitField(command.permission).toArray(false)}\`\nCommande en MP : \`${command.dm ? "Oui" : "Non"}\`\nCatégorie : \`${command.category}\`\n Utilisation : \`${command.utilisation}\``)
             .setTimestamp()
             .setFooter({text: "commandes du bot"})
 
